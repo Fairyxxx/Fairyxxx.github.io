@@ -12,7 +12,7 @@
         <link rel="alternate" href="https://fairyxxx.github.io/2023/07/10/Fairyxxx.Favorites.note2/"/>
         <content type="html">&lt;p&gt;&lt;a name=&#34;CjBTs&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;git的安装和初始化配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git的安装和初始化配置&#34;&gt;#&lt;/a&gt; git 的安装和初始化配置&lt;/h1&gt;
-&lt;p&gt;git 官网 &lt;code&gt;[https://git-scm.com/](https://git-scm.com/)&lt;/code&gt; &lt;br /&gt;安装完成后打开终端，输入： &lt;code&gt;git -v&lt;/code&gt;  查看版本。&lt;br&gt;
+&lt;p&gt;git 官网&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS8=&#34;&gt; https://git-scm.com/&lt;/span&gt;&lt;br /&gt;安装完成后打开终端，输入： &lt;code&gt;git -v&lt;/code&gt;  查看版本。&lt;br&gt;
 &lt;a name=&#34;oyPlk&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;git的使用方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git的使用方式&#34;&gt;#&lt;/a&gt; Git 的使用方式：&lt;/h2&gt;
 &lt;ul&gt;
