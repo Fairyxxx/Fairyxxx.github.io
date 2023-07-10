@@ -3,9 +3,198 @@
     <id>https://fairyxxx.github.io</id>
     <title>花开两朵，天各一方！</title>
     <link href="https://fairyxxx.github.io" />
-    <updated>2023-07-09T02:13:55.187Z</updated>
+    <updated>2023-07-10T02:29:05.302Z</updated>
     <category term="note" />
     <category term="emotion" />
+    <entry>
+        <id>https://fairyxxx.github.io/2023/07/10/Fairyxxx.Favorites.note2/</id>
+        <title>Git基础</title>
+        <link rel="alternate" href="https://fairyxxx.github.io/2023/07/10/Fairyxxx.Favorites.note2/"/>
+        <content type="html">&lt;p&gt;&lt;a name=&#34;CjBTs&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;git的安装和初始化配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git的安装和初始化配置&#34;&gt;#&lt;/a&gt; git 的安装和初始化配置&lt;/h1&gt;
+&lt;p&gt;git 官网 &lt;code&gt;[https://git-scm.com/](https://git-scm.com/)&lt;/code&gt; &lt;br /&gt;安装完成后打开终端，输入： &lt;code&gt;git -v&lt;/code&gt;  查看版本。&lt;br&gt;
+&lt;a name=&#34;oyPlk&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;git的使用方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git的使用方式&#34;&gt;#&lt;/a&gt; Git 的使用方式：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;命令行&lt;/li&gt;
+&lt;li&gt;图形化界面（GUI）&lt;/li&gt;
+&lt;li&gt;IDE 插件 / 拓展&lt;br&gt;
+&lt;a name=&#34;XcQQM&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;使用git之前配置用户名和邮箱&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用git之前配置用户名和邮箱&#34;&gt;#&lt;/a&gt; 使用 git 之前配置用户名和邮箱：&lt;/h3&gt;
+&lt;p&gt;配置用户名 &lt;code&gt;git config --global user.name &amp;quot;Jaser yng&amp;quot;&lt;/code&gt; &lt;br /&gt;配置邮箱 &lt;code&gt;git config --global user.email xxxxx@gmail.com&lt;/code&gt; &lt;br /&gt; &lt;code&gt;--local&lt;/code&gt; ：本地配置，只对本地仓库有效&lt;br /&gt; &lt;code&gt;--global&lt;/code&gt; ：全局配置，所有仓库生效&lt;br /&gt; &lt;code&gt;--system&lt;/code&gt; ：系统配置，对所有用户生效&lt;br /&gt;用户名中有空格需使用双引号 &lt;code&gt;&amp;quot;Jasper yang&amp;quot;&lt;/code&gt; ，没有空格不需要双引号&lt;br /&gt;保存用户名和密码：&lt;br /&gt; &lt;code&gt;git config --global credential.helper store&lt;/code&gt; &lt;br /&gt;查看配置信息：&lt;br /&gt; &lt;code&gt;git config --global --list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&#34;cotkD&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;新建仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#新建仓库&#34;&gt;#&lt;/a&gt; 新建仓库&lt;/h1&gt;
+&lt;p&gt;创建仓库：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方式一： &lt;code&gt;git init 文件名&lt;/code&gt; 在本地建立一个 git 仓库&lt;/li&gt;
+&lt;li&gt;方式二： &lt;code&gt;git clone 仓库地址&lt;/code&gt; 克隆远程仓库&lt;br&gt;
+&lt;a name=&#34;N2itX&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;工作区域和文件状态&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#工作区域和文件状态&#34;&gt;#&lt;/a&gt; 工作区域和文件状态&lt;/h1&gt;
+&lt;p&gt;本地数据管理区域：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;工作区（Working Directory）实际操作的目录&lt;/li&gt;
+&lt;li&gt;暂存区（Staging Area/Index）临时保存区域，用于保存即将要提交到 git 仓库的修改内容&lt;/li&gt;
+&lt;li&gt;本地仓库（Local Repository）git 存储代码和版本信息的主要位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn-us.imgs.moe/2023/07/10/64ab6c8f5b581.png&#34; alt=&#34;image.png&#34;&gt;&lt;br&gt;
+&lt;a name=&#34;wdLTP&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;添加和提交文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#添加和提交文件&#34;&gt;#&lt;/a&gt; 添加和提交文件&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;git init&lt;/code&gt;  创建仓库&lt;br /&gt; &lt;code&gt;git status&lt;/code&gt;  查看仓库的状态&lt;br /&gt; &lt;code&gt;git add&lt;/code&gt;  添加到暂存区 &lt;br /&gt; &lt;code&gt;git add *.txt&lt;/code&gt;  使用通配符，把 &lt;code&gt;.txt&lt;/code&gt;  文件全部添加到暂存区&lt;br /&gt; &lt;code&gt;git add .&lt;/code&gt;  使用目录，把当前文件夹下的所有文件添加到暂存区&lt;br /&gt; &lt;code&gt;git commit&lt;/code&gt;  提交到仓库，只能提交暂存区中的内容，不会提交工作区的内容&lt;br /&gt; &lt;code&gt;git commit -m&lt;/code&gt;  不会进入交互界面，直接提交&lt;br /&gt; &lt;code&gt;git log&lt;/code&gt;  查看提交历史记录&lt;br /&gt; &lt;code&gt;git log --oneline&lt;/code&gt;  查看简洁的提交记录&lt;br&gt;
+&lt;a name=&#34;rqAwZ&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;回退版本&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#回退版本&#34;&gt;#&lt;/a&gt; 回退版本&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;git reset&lt;/code&gt;  用于回退版本&lt;br /&gt; &lt;code&gt;git reset --soft&lt;/code&gt;  表示回退到某一版本，并且保留工作区和暂存区的所有修改内容&lt;br /&gt; &lt;code&gt;git reset --hard&lt;/code&gt;  表示回退到某一版本，并且丢弃工作区和暂存区的所有修改内容&lt;br /&gt; &lt;code&gt;git reset --mixed&lt;/code&gt;  表示回退到某一版本，只保留工作区的修改内容，而丢弃暂存区的修改内容&lt;br /&gt;&lt;img data-src=&#34;https://cdn-us.imgs.moe/2023/07/10/64ab6ca31b310.png&#34; alt=&#34;image.png&#34;&gt;&lt;br&gt;
+&lt;a name=&#34;bOyBi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;git-diff&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git-diff&#34;&gt;#&lt;/a&gt;  &lt;code&gt;git diff&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;查看工作区、暂存区、本地仓库之间的差异&lt;br /&gt;  &lt;code&gt;git diff&lt;/code&gt;  默认比较工作区和暂存区的差异内容，会显示发生更改的文件以及更改的详细信息。&lt;br /&gt; &lt;code&gt;git diff HEAD&lt;/code&gt;  比较工作区与本地仓库之间的差异。&lt;br /&gt; &lt;code&gt;git diff --cached&lt;/code&gt;  比较暂存区与本地仓库之间的差异。&lt;br /&gt; &lt;code&gt;git diff --staged&lt;/code&gt;  比较暂存区与本地仓库之间的差异。&lt;br /&gt; &lt;code&gt;git diff 版本提交ID1 版本提交ID2&lt;/code&gt;  后面加上两次版本的提交 ID 就可以比较两个版本之间的差异内容。&lt;br /&gt; &lt;code&gt;git diff HEAD~ HEAD&lt;/code&gt;  比较当前版本和上一个版本之间的差异&lt;br /&gt; &lt;code&gt;git diff HEAD^ HEAD&lt;/code&gt;  比较当前版本和上一个版本之间的差异&lt;br /&gt; &lt;code&gt;git diff HEAD~2 HEAD&lt;/code&gt;  比较当前版本和提交前的两个版本之间的差异&lt;br /&gt; &lt;code&gt;git diff HEAD~2 HEAD file3.txt&lt;/code&gt;  只会查看 file3 的差异内容&lt;br /&gt; &lt;code&gt;git diff &amp;lt;branch_name&amp;gt; &amp;lt;branch_name&amp;gt;&lt;/code&gt;  比较分支之间的差异&lt;br&gt;
+&lt;a name=&#34;GxVQB&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;如何从版本库中删除文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#如何从版本库中删除文件&#34;&gt;#&lt;/a&gt; 如何从版本库中删除文件&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;rm file;git add file&lt;/code&gt;  先从工作区删除文件，然后再从暂存区删除内容&lt;br /&gt; &lt;code&gt;git rm &amp;lt;file&amp;gt;&lt;/code&gt;  本文件从工作区和暂存区同时删除&lt;br /&gt; &lt;code&gt;git rm --cached &amp;lt;file&amp;gt;&lt;/code&gt;  把文件从暂存区删除，但是保留在当前工作区中&lt;br /&gt; &lt;code&gt;git rm -r*&lt;/code&gt;  递归删除某个目录下的所有子目录和文件，删除后不要忘记提交。&lt;br&gt;
+&lt;a name=&#34;JPKgr&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;gitignore忽略文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gitignore忽略文件&#34;&gt;#&lt;/a&gt;  &lt;code&gt;.gitignore&lt;/code&gt;  忽略文件&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&#34;Sl9Mg&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;应该忽略那些文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#应该忽略那些文件&#34;&gt;#&lt;/a&gt; 应该忽略那些文件&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;系统或者软件自动生成的文件&lt;/li&gt;
+&lt;li&gt;编译产生的中间文件和结果文件&lt;/li&gt;
+&lt;li&gt;运行时生成日志文件、缓存文件、临时文件&lt;/li&gt;
+&lt;li&gt;涉及身份、密码、口令、密钥等敏感信息文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;忽略日志文件和文件夹&lt;/li&gt;
+&lt;li&gt;忽略所有 &lt;code&gt;.class&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;忽略所有 &lt;code&gt;.o&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;忽略所有 &lt;code&gt;.env&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;忽略所有 &lt;code&gt;.zip&lt;/code&gt;  和 &lt;code&gt;tar&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;忽略所有 &lt;code&gt;.pem&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;……&lt;br&gt;
+&lt;a name=&#34;Jpuij&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gitignore文件的匹配规则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gitignore文件的匹配规则&#34;&gt;#&lt;/a&gt;  &lt;code&gt;.gitignore&lt;/code&gt;  文件的匹配规则&lt;/h2&gt;
+&lt;p&gt;从上到下逐行匹配，每一行表示一个忽略模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空行或者以 &lt;code&gt;#&lt;/code&gt; 开头的行会被 Git 忽略。一般空行用于可读性的分隔， &lt;code&gt;#&lt;/code&gt; 一般用作注释&lt;/li&gt;
+&lt;li&gt;使用标准的 Blob 模式匹配，例如
+&lt;ul&gt;
+&lt;li&gt;星号 &lt;code&gt;*&lt;/code&gt;  通配任意个字符&lt;/li&gt;
+&lt;li&gt;问号 &lt;code&gt;?&lt;/code&gt;  匹配单个字符&lt;/li&gt;
+&lt;li&gt;中括号 &lt;code&gt;[]&lt;/code&gt;  表示匹配列表中的单个字符，比如： &lt;code&gt;[abc]&lt;/code&gt;  表示 &lt;code&gt;a/b/c&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;两个星号 &lt;code&gt;**&lt;/code&gt;  表示匹配任意的中间目录&lt;/li&gt;
+&lt;li&gt;中括号可以使用短中线链接，比如：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[0-9]&lt;/code&gt;  表示任意一位数字， &lt;code&gt;[a-z]&lt;/code&gt;  表示任意一位小写字母&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;感叹号 &lt;code&gt;!&lt;/code&gt;  表示取反&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 忽略所有的 .a 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;*.a&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 但跟踪所有的 lib.a,即使你在前面忽略了 .a 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;!lib.a&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 只忽略当前目录下的 TODO文件，而不忽略 subdir/TODO&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/TODO&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 忽略任何目录下名为 build 的文件夹&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;build/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 忽略 doc/notes.txt,但不忽略 doc/server/arch.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;doc/*.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;doc/**/*.pdf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;a name=&#34;PHIG9&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;注册github账号&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注册github账号&#34;&gt;#&lt;/a&gt; 注册 Github 账号&lt;/h1&gt;
+&lt;p&gt;网址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tLw==&#34;&gt;https://github.com/&lt;/span&gt;&lt;br&gt;
+&lt;a name=&#34;fyomH&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ssh配置和克隆仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh配置和克隆仓库&#34;&gt;#&lt;/a&gt; SSH 配置和克隆仓库&lt;/h1&gt;
+&lt;p&gt;生成 SSH Key： &lt;code&gt;ssh-keygen -t rsa -b 4096&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;私钥文件： &lt;code&gt;id_rsa&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;公钥文件： &lt;code&gt;id_rsa.pub&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;克隆仓库： &lt;code&gt;git clone repo-address&lt;/code&gt; &lt;br /&gt;推送更新内容： &lt;code&gt;git push &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;&lt;/code&gt; &lt;br /&gt;拉取更新内容： &lt;code&gt;git pull &amp;lt;remote&amp;gt;&lt;/code&gt; &lt;br&gt;
+&lt;a name=&#34;TIkP5&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;关联本地仓库和远程仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关联本地仓库和远程仓库&#34;&gt;#&lt;/a&gt; 关联本地仓库和远程仓库&lt;/h1&gt;
+&lt;p&gt;添加远程仓库：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;git remote add &amp;lt;远程仓库别名&amp;gt; &amp;lt;远程仓库地址&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push -u &amp;lt;远程仓库名&amp;gt; &amp;lt;分支名&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;查看远程仓库： &lt;code&gt;git remote -v&lt;/code&gt; &lt;br /&gt;拉取远程仓库内容： &lt;code&gt;git pull &amp;lt;远程仓库名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt;&lt;/code&gt;  相同可省略冒号后面部分&lt;br&gt;
+&lt;a name=&#34;ZbNtQ&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;gitee的使用和gitlab本地化部署&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gitee的使用和gitlab本地化部署&#34;&gt;#&lt;/a&gt; Gitee 的使用和 GitLab 本地化部署&lt;/h1&gt;
+&lt;p&gt;Gitee：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRlZS5jb20v&#34;&gt;https://gitee.com/&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特色：国内平台&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;GitLab：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hYm91dC5naXRsYWIuY29tLw==&#34;&gt;https://about.gitlab.com/&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特色：私有化部署&lt;br&gt;
+&lt;a name=&#34;bWkzf&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;gui工具&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gui工具&#34;&gt;#&lt;/a&gt; GUI 工具&lt;/h1&gt;
+&lt;p&gt;Github Desktop：功能单一只能管理 GitHub 上的仓库。&lt;br /&gt;Sourcetree：支持 Windows 和 mac 操作系统&lt;br&gt;
+&lt;a name=&#34;iytA8&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;vscode中使用git&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vscode中使用git&#34;&gt;#&lt;/a&gt; VScode 中使用 Git&lt;/h1&gt;
+&lt;p&gt;布局：菜单栏、侧边栏、编辑区、终端区&lt;br /&gt;打开命令面板： &lt;code&gt;Ctrl + Shift + ``/&lt;/code&gt; Command + Shift +  &lt;code&gt;&amp;lt;br /&amp;gt;配置文件：`settings.json`&amp;lt;br /&amp;gt;打开终端：`Ctrl + Shift + &lt;/code&gt; &lt;br /&gt;插件和扩展：在侧边栏中的扩展界面中搜索和安装&lt;br /&gt;Git 操作：在侧边栏中的源码管理器 UI 界面中操作&lt;br&gt;
+&lt;a name=&#34;wsui8&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;分支简介和基本操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分支简介和基本操作&#34;&gt;#&lt;/a&gt; 分支简介和基本操作&lt;/h1&gt;
+&lt;p&gt;查看分支列表： &lt;code&gt;git branch&lt;/code&gt; &lt;br /&gt;创建分支： &lt;code&gt;git branch branch-name&lt;/code&gt; &lt;br /&gt;切换分支：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git checkout branch-name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git switch branch-name&lt;/code&gt;  (推荐)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;合并分支： &lt;code&gt;git merge branch-name&lt;/code&gt; &lt;br /&gt;删除分支：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git branch -d branch-name&lt;/code&gt;  删除已合并分支&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git branch -D branch-name&lt;/code&gt;  删除未合并分支&lt;br&gt;
+&lt;a name=&#34;E9Jys&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;解决合并冲突&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解决合并冲突&#34;&gt;#&lt;/a&gt; 解决合并冲突&lt;/h1&gt;
+&lt;p&gt;两个分支未修改同一个文件的同一处位置：Git 自动合并&lt;br /&gt;两个分支修改了同一个文件的同一处位置：产生冲突&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解决方法：
+&lt;ul&gt;
+&lt;li&gt;1. 手工修改冲突文件&lt;/li&gt;
+&lt;li&gt;2. 添加暂存区 &lt;code&gt;git add file&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;3. 提交修改 &lt;code&gt;git commit -m &amp;quot;message&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;中止合并：当不想继续执行合并操作时可以使用下面的命令来中止合并过程： &lt;code&gt;git merge --abort&lt;/code&gt; &lt;br&gt;
+&lt;a name=&#34;IqiOt&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;回退和rebase&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#回退和rebase&#34;&gt;#&lt;/a&gt; 回退和 &lt;code&gt;rebase&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Merge&lt;/code&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：不会破坏原分支的提交历史，方便回溯和查看&lt;/li&gt;
+&lt;li&gt;缺点：会产生额外的提交节点，分支图比较复杂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Rebase&lt;/code&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：不会新增额外的提交记录，形成线性历史，比较直观和干净&lt;/li&gt;
+&lt;li&gt;缺点：会改变提交历史，改变了当前分支 &lt;code&gt;branch out&lt;/code&gt;  的节点。&lt;/li&gt;
+&lt;li&gt;避免在共享分支时使用，一般不会在公共分支上使用&lt;br&gt;
+&lt;a name=&#34;XUjYi&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;分支管理和工作流模型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分支管理和工作流模型&#34;&gt;#&lt;/a&gt; 分支管理和工作流模型&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;main&lt;/code&gt;  主线 / 基线分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只接受来自 &lt;code&gt;hotfix&lt;/code&gt;  和 &lt;code&gt;release&lt;/code&gt;  的合并请求&lt;/li&gt;
+&lt;li&gt;不允许直接 &lt;code&gt;push&lt;/code&gt;  修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;hotfix&lt;/code&gt;  线上版本 bug 热修复分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用于解决线上问题，修复完后合并回 &lt;code&gt;main&lt;/code&gt;  分支&lt;/li&gt;
+&lt;li&gt;命名规则： &lt;code&gt;hotfix-#issueid-desc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;release&lt;/code&gt;  版本发布分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;永久分支，用于发布前的测试和验证&lt;br&gt;
+&lt;a name=&#34;vg0lS&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分支命名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分支命名&#34;&gt;#&lt;/a&gt; 分支命名：&lt;/h2&gt;
+&lt;p&gt;推荐使用带有意义的描述性名称来命名分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;版本发布分支 / Tag 示例： &lt;code&gt;v1.0.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;功能分支示例： &lt;code&gt;feature-login-page&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;修复分支示例： &lt;code&gt;hotfix-#issueid-desc&lt;/code&gt; &lt;br&gt;
+&lt;a name=&#34;Bjx9K&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分支管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分支管理&#34;&gt;#&lt;/a&gt; 分支管理：&lt;/h2&gt;
+&lt;p&gt;定期合并已经成功验证的分支，及时删除已经合并的分支&lt;br /&gt;保持合适的分支数量&lt;br /&gt;为分支设置合适的管理权限&lt;/p&gt;
+</content>
+        <category term="note" />
+        <updated>2023-07-10T02:29:05.302Z</updated>
+    </entry>
     <entry>
         <id>https://fairyxxx.github.io/2023/07/09/Fairyxxx.Favorites.039/</id>
         <title>两个人只要想在一起就一定能在一起</title>
