@@ -3,9 +3,180 @@
     <id>https://fairyxxx.github.io</id>
     <title>花开两朵，天各一方！ • Posts by &#34;note&#34; tag</title>
     <link href="https://fairyxxx.github.io" />
-    <updated>2023-07-10T08:52:27.075Z</updated>
+    <updated>2023-07-11T08:30:09.483Z</updated>
     <category term="note" />
     <category term="emotion" />
+    <entry>
+        <id>https://fairyxxx.github.io/2023/07/11/Docker%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</id>
+        <title>Docker基础</title>
+        <link rel="alternate" href="https://fairyxxx.github.io/2023/07/11/Docker%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
+        <content type="html">&lt;p&gt;&lt;a name=&#34;eSQ51&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker简介&#34;&gt;#&lt;/a&gt; Docker 简介&lt;/h1&gt;
+&lt;p&gt;Docker 是一个用于 构建、运行、传送 、应用程序的平台&lt;br&gt;
+&lt;a name=&#34;M5fb9&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker和虚拟机的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker和虚拟机的区别&#34;&gt;#&lt;/a&gt; Docker 和虚拟机的区别&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&#34;xRLGg&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;虚拟机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#虚拟机&#34;&gt;#&lt;/a&gt; 虚拟机：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img data-src=&#34;https://cdn.nlark.com/yuque/0/2023/png/34696645/1689045667982-2c694651-3c2d-40ff-ae9f-edf18718f47e.png#averageHue=%231273c3&amp;amp;clientId=ube4b60be-7a10-4&amp;amp;from=paste&amp;amp;height=515&amp;amp;id=ua77292ce&amp;amp;originHeight=644&amp;amp;originWidth=1571&amp;amp;originalType=binary&amp;amp;ratio=1.25&amp;amp;rotation=0&amp;amp;showTitle=false&amp;amp;size=292740&amp;amp;status=done&amp;amp;style=none&amp;amp;taskId=ue00b0250-28e0-4e25-a627-11628332a16&amp;amp;title=&amp;amp;width=1256.8&#34; alt=&#34;image.png&#34;&gt;&lt;/li&gt;
+&lt;li&gt;虚拟机在一定程度上实现了资源的整合，可以将一台服务器的计算能力、存储能力、网络资源分配给多个逻辑服务器，实现多台服务器的功能&lt;/li&gt;
+&lt;li&gt;缺点：每台虚拟机都需要占用大量的资源，启动速度慢，大部分情况下，一台服务器上只需要运行一个主要对外提供服务的应用程序就可以了，并不需要一个完整的操作系统。&lt;/li&gt;
+&lt;li&gt;&lt;img data-src=&#34;https://cdn.nlark.com/yuque/0/2023/png/34696645/1689046632032-71dd91b0-7037-4573-b271-e040187cfb48.png#averageHue=%231372c4&amp;amp;clientId=ube4b60be-7a10-4&amp;amp;from=paste&amp;amp;height=381&amp;amp;id=uddce8c67&amp;amp;originHeight=476&amp;amp;originWidth=766&amp;amp;originalType=binary&amp;amp;ratio=1.25&amp;amp;rotation=0&amp;amp;showTitle=false&amp;amp;size=179338&amp;amp;status=done&amp;amp;style=none&amp;amp;taskId=u460e5ac8-d55c-4b3c-a164-38a085a3b2b&amp;amp;title=&amp;amp;width=612.8&#34; alt=&#34;image.png&#34;&gt;&lt;br&gt;
+&lt;a name=&#34;fm6g0&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;容器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#容器&#34;&gt;#&lt;/a&gt; 容器：&lt;/h2&gt;
+&lt;p&gt;Docker 和容器是两个不同的概念&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker 只是容器的一种实现，是一个容器化的解决方案和平台&lt;/li&gt;
+&lt;li&gt;容器是一种虚拟化技术，和虚拟机类似也是一个独立的环境。和虚拟机不同的是，它并不需要在容器中运行一个完整的操作系统。&lt;/li&gt;
+&lt;li&gt;&lt;img data-src=&#34;https://cdn.nlark.com/yuque/0/2023/png/34696645/1689046641835-16337b61-f871-4e8e-80c8-cad5a2566a30.png#averageHue=%230a6fbf&amp;amp;clientId=ube4b60be-7a10-4&amp;amp;from=paste&amp;amp;height=385&amp;amp;id=u6d6ba680&amp;amp;originHeight=481&amp;amp;originWidth=761&amp;amp;originalType=binary&amp;amp;ratio=1.25&amp;amp;rotation=0&amp;amp;showTitle=false&amp;amp;size=140750&amp;amp;status=done&amp;amp;style=none&amp;amp;taskId=ufddc217b-1e8d-446f-aaf7-add7fa978f9&amp;amp;title=&amp;amp;width=608.8&#34; alt=&#34;image.png&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&#34;HaT1V&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;基本原理和概念&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本原理和概念&#34;&gt;#&lt;/a&gt; 基本原理和概念&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.nlark.com/yuque/0/2023/png/34696645/1689046877294-5e82a3e7-90a9-424f-be75-a388ba093da7.png#averageHue=%2395fdca&amp;amp;clientId=ube4b60be-7a10-4&amp;amp;from=paste&amp;amp;height=564&amp;amp;id=u17c59eb3&amp;amp;originHeight=705&amp;amp;originWidth=1589&amp;amp;originalType=binary&amp;amp;ratio=1.25&amp;amp;rotation=0&amp;amp;showTitle=false&amp;amp;size=305069&amp;amp;status=done&amp;amp;style=none&amp;amp;taskId=u73128ec6-44ff-4234-a417-e0b64fed81a&amp;amp;title=&amp;amp;width=1271.2&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;images&lt;/code&gt;  镜像，镜像是一个只读的模板，它可以用来创建容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;containers&lt;/code&gt;  容器，容器是 Docker 的运行实例，它提供一个独立的可移植的环境，可以在这个环境中运行应用程序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Docker 仓库：是用来存储 Docker 镜像的地方，最流行和最常用的仓库就是 &lt;code&gt;Dockerhub&lt;/code&gt; ：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9odWItc3RhZ2UuZG9ja2VyLmNvbS8=&#34;&gt;https://hub-stage.docker.com/&lt;/span&gt;&lt;br&gt;
+&lt;a name=&#34;vqvXG&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker的安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker的安装&#34;&gt;#&lt;/a&gt; Docker 的安装&lt;/h1&gt;
+&lt;p&gt;Docker 官网：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZG9ja2VyLmNvbS8=&#34;&gt;https://www.docker.com/&lt;/span&gt;&lt;br /&gt;Windows 系统：需要开启 &lt;code&gt;Hyper-V&lt;/code&gt; &lt;br /&gt; &lt;code&gt;docker version&lt;/code&gt;  查看版本信息&lt;br /&gt; Docker 是使用 &lt;code&gt;Client-Server&lt;/code&gt;  架构模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Docker Client&lt;/code&gt;  和 &lt;code&gt;Docker Daemon&lt;/code&gt;  之间通过 &lt;code&gt;Socket&lt;/code&gt;  或者 &lt;code&gt;RESTful API&lt;/code&gt;  进行通信&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Docker Daemon&lt;/code&gt;  就是服务端的守护进程，负责管理 Docker 的各种资源&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Docker Client&lt;/code&gt;  负责向 &lt;code&gt;Docker Daemon&lt;/code&gt;  发送请求， &lt;code&gt;Docker Daemon&lt;/code&gt;  收到请求之后进行处理，然后将结果返回给 &lt;code&gt;Docker Client&lt;/code&gt; &lt;br&gt;
+&lt;a name=&#34;pnJTj&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;容器化和dockerfile&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#容器化和dockerfile&#34;&gt;#&lt;/a&gt; 容器化和 &lt;code&gt;Dockerfile&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;容器化：将应用程序打包成容器，然后在容器中运行应用程序的过程，可分为三个步骤。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建一个 &lt;code&gt;Dockerfile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;Dockerfile&lt;/code&gt;  构建镜像&lt;/li&gt;
+&lt;li&gt;使用镜像创建和运行容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;Dockerfile&lt;/code&gt;  是一个文本文件，里面包含了一条条指令，用来告诉 Docker 如何来构建镜像。&lt;br&gt;
+&lt;a name=&#34;hbiQX&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker-compose&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-compose&#34;&gt;#&lt;/a&gt; Docker Compose&lt;/h1&gt;
+&lt;p&gt;Docker Compose&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用于定义和运行多容器 Docker 应用程序的工具&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;YAML&lt;/code&gt;  文件来配置应用程序的服务&lt;/li&gt;
+&lt;li&gt;一条命令即可创建并启动所有服务&lt;br&gt;
+&lt;a name=&#34;g8lpD&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;docker常用命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker常用命令&#34;&gt;#&lt;/a&gt; Docker 常用命令&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&#34;TZ7xC&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;镜像管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#镜像管理&#34;&gt;#&lt;/a&gt; 镜像管理：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker image ls / docker images&lt;/code&gt;  查看镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker search [image]&lt;/code&gt;  检索镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker pull [image]&lt;/code&gt;  拉取镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker push [image]&lt;/code&gt;  上传镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker save [image] -o FILE &lt;/code&gt;  保存镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker save [image] &amp;gt; FILE&lt;/code&gt;  保存镜像
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker save geekhour/hello-docker:latest &amp;gt; hello-docker.tar&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker load -i FILE&lt;/code&gt;  导入镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker rmi [image] / docker image rm [image]&lt;/code&gt;  删除镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker image prune&lt;/code&gt;  删除不再使用的镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker import [URL/FILE]&lt;/code&gt;  将文件系统导入为镜像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker commit [container] [image]&lt;/code&gt;  从容器创建镜像&lt;br&gt;
+&lt;a name=&#34;xjWpx&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;网络管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网络管理&#34;&gt;#&lt;/a&gt; 网络管理：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker network ls&lt;/code&gt;  列出可用网络&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network inspect [network]&lt;/code&gt;  查看网络详细信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network create [network]&lt;/code&gt;  创建一个新的网络&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network rm [network]&lt;/code&gt;  删除一个网络&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network connect [network] [container]&lt;/code&gt;  将容器连接到网络&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network disconnect [network] [container]&lt;/code&gt;  将容器从网络断开&lt;br&gt;
+&lt;a name=&#34;VJ4Ya&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;插件管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#插件管理&#34;&gt;#&lt;/a&gt; 插件管理：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker plugin ls&lt;/code&gt;  列出插件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker plugin install [plugin]&lt;/code&gt;  安装插件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker plugin enable [plugin]&lt;/code&gt;  启用插件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker plugin disable [plugin]&lt;/code&gt;  禁用插件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker plugin rm [plugin]&lt;/code&gt;  卸载插件&lt;br&gt;
+&lt;a name=&#34;rVVI2&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;容器管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#容器管理&#34;&gt;#&lt;/a&gt; 容器管理：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker create [image]&lt;/code&gt;  创建容器（仅创建，不运行）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run [image]&lt;/code&gt;  创建并运行容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker start [container]&lt;/code&gt;  启动容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker stop [container]&lt;/code&gt;  停止容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker restart [container]&lt;/code&gt;  重启容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker ps / docker container ls&lt;/code&gt;  列出正在运行的容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker ps -a / docker container ls -a&lt;/code&gt;  列出所有容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker exec -it [container] bash / docker attach [container]&lt;/code&gt;  以交互模式进入容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker export [container] -o FILE / docker export [container] &amp;gt; FILE&lt;/code&gt;  导出容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker import FILE&lt;/code&gt;  导入容器快照&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker logs [container]&lt;/code&gt;   查看容器⽇志&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker rm [container] / docker container rm [container]  &lt;/code&gt;   删除容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker port [container]&lt;/code&gt;    查看容器端⼝映射&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker top [container]&lt;/code&gt;   显示容器内进程&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker cp [FILE] [container]:[PATH]&lt;/code&gt;    复制本地⽂件 到容器内的指定路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker diff [container]&lt;/code&gt;   显示容器内的变化&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker stats [container]&lt;/code&gt;    显示容器资源使⽤情况&lt;br&gt;
+&lt;a name=&#34;fywXl&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;数据卷管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据卷管理&#34;&gt;#&lt;/a&gt; 数据卷管理：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker volume create [volume]&lt;/code&gt;   创建⼀个数据卷&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume ls&lt;/code&gt;    查看数据卷&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume inspect [volume]&lt;/code&gt;    查看数据卷详细信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume rm [volume]&lt;/code&gt;    删除数据卷&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume prune&lt;/code&gt;    删除所有未使⽤的数据卷&lt;br&gt;
+&lt;a name=&#34;IktNY&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;日常操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#日常操作&#34;&gt;#&lt;/a&gt; 日常操作：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker info&lt;/code&gt;  查看 docker 系统信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker version&lt;/code&gt;    查看 Docker 版本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker --help&lt;/code&gt;    查看 Docker 帮助⽂档&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker [command] --help&lt;/code&gt;    查看 Docker 命令帮助&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker login/logout&lt;/code&gt;    登录 / 退出 DockerHub&lt;br&gt;
+&lt;a name=&#34;CwKfo&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;容器运行&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#容器运行&#34;&gt;#&lt;/a&gt; 容器运行：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker run [options] image [command] [arg...]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run --name [name] [image]&lt;/code&gt;     创建 运⾏并命名容器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -d [image]&lt;/code&gt;    创建⼀个容器并后台运⾏&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -p [hostPort]:[containerPort] [image]&lt;/code&gt;    创建⼀个容器并指定端⼝映射&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -P [image]&lt;/code&gt;    创建⼀个容器并指定端⼝映射（随机分配）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -e [key=value] [image]&lt;/code&gt;   创建⼀个容器并指定环境变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -w [PATH] [image]&lt;/code&gt;    创建⼀个容器并指定⼯作⽬录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -name [name] [image]&lt;/code&gt;    创建⼀个容器并指定容器名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run [image] [command]&lt;/code&gt;   创建⼀个容器并在容器中执⾏命令（交互模式）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -d -p [hostPort]:[containerPort] -e [key=value] -w [PATH] --name [name] [image]&lt;/code&gt;   创建⼀个容器，并指定容器名称，后台运⾏，端⼝映射 环境变量，⼯作⽬录
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker run -it nginx:latest /bin/bash&lt;/code&gt;    使⽤镜像 &lt;code&gt;nginx:latest&lt;/code&gt;  来启动⼀个容器， 并在容器内执⾏交互式 &lt;code&gt;bash shell  &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run -it -p 3316:3306 -v /data:/data -d mysql:latest &lt;/code&gt;   创建⼀个 mysql 容器，后台模式启动，主机 &lt;code&gt;80&lt;/code&gt;  端⼝ 映射到容器 &lt;code&gt;80&lt;/code&gt;  端⼝，主机 &lt;code&gt;/data&lt;/code&gt;  ⽬录映射到容器 &lt;code&gt;/data&lt;/code&gt;  ⽬录&lt;br&gt;
+&lt;a name=&#34;Hic4g&#34;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用dockerfile指令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#常用dockerfile指令&#34;&gt;#&lt;/a&gt; 常用 &lt;code&gt;Dockerfile&lt;/code&gt;  指令：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;FROM [base_image]&lt;/code&gt;    指定基础镜像，必须为 Dockerfile 的第⼀条指令；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ADD&lt;/code&gt;    ⽤于将⽂件复制到镜像中，源可以使 URL 或者本地⽂件，也可 以⼀个压缩⽂件（⾃动解压）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] [源路径] [⽬标路径]&lt;/code&gt;  ⽤于将⽂件拷⻉到镜像中，源只能是本地⽂件；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WORKDIR [PATH] &lt;/code&gt;   ⽤于指定⼯作⽬录，可以使⽤多个 &lt;code&gt;WORKDIR&lt;/code&gt;  指令，如果使⽤ 相对路径，则是相对于上⼀条 &lt;code&gt;WORKDIR&lt;/code&gt;  指令所指定的⽬录；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ENV &amp;lt;key&amp;gt; &amp;lt;value&amp;gt; / ENV &amp;lt;key&amp;gt;=&amp;lt;value1&amp;gt; &amp;lt;key2&amp;gt;=&amp;lt;value2&amp;gt;...&lt;/code&gt;  ⽤于设置环境变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMD &amp;lt;命令&amp;gt; /  CMD [&amp;quot;可执⾏⽂件&amp;quot;, &amp;quot;参数1&amp;quot;, &amp;quot;参数2&amp;quot; ...]&lt;/code&gt;   ⽤于指定默认的容器主进程，每个 &lt;code&gt;Dockerfile&lt;/code&gt;  中只能有⼀条 &lt;code&gt;CMD&lt;/code&gt;  指令，如果有多条，则只有最后⼀条会⽣效；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VOLUME &amp;lt;路径&amp;gt; /  VOLUME [&amp;quot;路径1&amp;quot;, &amp;quot;路径2&amp;quot;...]&lt;/code&gt;   ⽤于定义匿名卷（持久化⽬录）&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="note" />
+        <updated>2023-07-11T08:30:09.483Z</updated>
+    </entry>
     <entry>
         <id>https://fairyxxx.github.io/2023/07/10/Fairyxxx.Favorites.note4/</id>
         <title>Nmap基础</title>
