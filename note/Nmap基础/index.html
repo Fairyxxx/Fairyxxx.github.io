@@ -1,0 +1,495 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<!--解决语雀图片无法显示-->
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="花开两朵，天各一方！" href="https://fairyxxx.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="花开两朵，天各一方！" href="https://fairyxxx.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="花开两朵，天各一方！" href="https://fairyxxx.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="note" />
+
+
+<link rel="canonical" href="https://fairyxxx.github.io/note/Nmap%E5%9F%BA%E7%A1%80/">
+
+
+
+  <title>
+Nmap 基础 |
+Fairy Tale = 花开两朵，天各一方！ = LYT</title><meta name="robots" content="noindex">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Nmap 基础
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-10 16:52:27">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-10T16:52:27+08:00">2023-07-10</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>1.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Fairy Tale</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://cdn-us.imgs.moe/2023/07/05/64a4be10cff5f.jpg"></li>
+          <li class="item" data-background-image="https://cdn-us.imgs.moe/2023/07/05/64a4be1d5ef42.jpeg"></li>
+          <li class="item" data-background-image="https://cdn-us.imgs.moe/2023/07/05/64a4bdec8b768.jpg"></li>
+          <li class="item" data-background-image="https://cdn-us.imgs.moe/2023/07/05/64a4be10d125f.jpg"></li>
+          <li class="item" data-background-image="https://cdn-us.imgs.moe/2023/07/05/64a4c4aa1df4f.webp"></li>
+          <li class="item" data-background-image="https://cdn-us.imgs.moe/2023/07/07/64a7ce31a398a.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://fairyxxx.github.io/note/Nmap%E5%9F%BA%E7%A1%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Clown">
+    <meta itemprop="description" content="LYT, 我很喜欢枫叶，可惜，枫叶红时，总多离别。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="花开两朵，天各一方！">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><a name="LjDCe"></a></p>
+<h1 id="nmap的介绍与安装"><a class="markdownIt-Anchor" href="#nmap的介绍与安装">#</a> Nmap 的介绍与安装</h1>
+<p>Nmap 介绍：</p>
+<ul>
+<li>Nmap 是一款开源、免费的网络探测、安全审计的工具。</li>
+<li><img data-src="https://cdn.nlark.com/yuque/0/2022/png/34696645/1672104829214-c624e5d6-bc48-4a33-ad90-a3c006e5df9d.png#averageHue=%23fcfcfc&amp;clientId=ub64b62f9-a6a7-4&amp;from=paste&amp;height=409&amp;id=u0f2a314d&amp;originHeight=409&amp;originWidth=662&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=89269&amp;status=done&amp;style=none&amp;taskId=uf72fbfe0-7475-4cd1-b11f-1ad5e31a29b&amp;title=&amp;width=662" alt="image.png"></li>
+<li>通过 Nmap 探测服务器存活以及开发的服务，以及对目标进行安全审计。</li>
+</ul>
+<p>Nmap 获取：</p>
+<ul>
+<li>Nmap 的获取，建议无论任何软件的获取，都是通过对应官网获取。</li>
+<li>Namp 官网：<span class="exturl" data-url="aHR0cHM6Ly9ubWFwLm9yZy8=">https://nmap.org/</span></li>
+</ul>
+<p>Nmap 安装（Windows）：</p>
+<ul>
+<li>Nmap 下载界面：<span class="exturl" data-url="aHR0cHM6Ly9ubWFwLm9yZy9kb3dubG9hZC5odG1sI3dpbmRvd3M=">https://nmap.org/download.html#windows</span>，打开之后直接下载，双击 exe 文件安装</li>
+</ul>
+<p>Nmap 安装（linux）：</p>
+<ul>
+<li>对于大多数 Linux，可以直接利用 RPM 包管理直接安装，以下给出对应命令操作。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ubWFwLm9yZy9kb3dubG9hZC5odG1sI2xpbnV4LXJwbQ==">https://nmap.org/download.html#linux-rpm</span></li>
+<li>
+<br />
+</li>
+</ul>
+<p><a name="mZeTA"></a></p>
+<h1 id="nmap列举远程机器开放的端口"><a class="markdownIt-Anchor" href="#nmap列举远程机器开放的端口">#</a> Nmap 列举远程机器开放的端口</h1>
+<p>Nmap 列举远程机器开放的端口原理</p>
+<ul>
+<li>Nmap 扫描原理图：</li>
+<li><img data-src="https://cdn.nlark.com/yuque/0/2022/png/34696645/1672112381686-f249212b-b928-4afc-bdc1-dd1102908f18.png#averageHue=%23fafafa&amp;clientId=uc7b4bd5d-19ef-4&amp;from=paste&amp;height=270&amp;id=uffc958ad&amp;originHeight=338&amp;originWidth=854&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=89376&amp;status=done&amp;style=none&amp;taskId=ua812751a-fee1-4326-a2d7-6132a7fdcd1&amp;title=&amp;width=683.2" alt="image.png"></li>
+<li>首先判断 nmap 输入的命令行中是否包含域名，如果包含需要利用 DNS 服务器进行域名解析，然后发送 ICMP Echo Request 来探测主机存活性。</li>
+<li>
+<br />
+</li>
+</ul>
+<p>使用 <code>nmap scanme.nmap.org</code>  来列举该站点的端口信息。<br />nmap 进行探测之前要把域名通过 DNS 服务器解析为 IP 地址，我们也可以使用指定的 DNS 服务器进行解析。使用 <code>--dns-servers</code>  参数来指定。<br />对于已经知道主机存活或者防火墙开启的机器，可以使用 <code>-Pn</code>  参数来停止探测之前的 ICMP 请求。以达到不触发防火墙安全机制。<br />对于默认的端口范围，并不能满足日常工作需要。可以使用 <code>-p m-n</code>  来指定探测端口范围为 m-n 之间的所有端口。<br />端口状态：</p>
+<ul>
+<li>open：表示端口处于开放状态</li>
+<li>closed：表示端口处于关闭状态</li>
+<li>Filterd：表示端口处于过滤无法收到返回的 probe 状态</li>
+<li>UnFiltered：表示端口收到返回的 probe，但是无法确认</li>
+<li>Opend/UnFiltered：表示端口处于开放或者未过滤状态</li>
+<li>Closed/UnFiltered：表示端口处于关闭或者未过滤状态</li>
+</ul>
+<p>Nmap 扫描技术查看：</p>
+<ul>
+<li>在命令行中，输入 <code>nmap -h</code>  来查看 nmap 自带的帮助信息</li>
+<li>
+<br />
+</li>
+</ul>
+<p><a name="jx6uT"></a></p>
+<h1 id="nmap识别目标机器上服务的指纹"><a class="markdownIt-Anchor" href="#nmap识别目标机器上服务的指纹">#</a> Nmap 识别目标机器上服务的指纹</h1>
+<p>服务指纹：</p>
+<ul>
+<li>为了确保有一个成功的渗透测试或网络设备监控，必须需要知道目标系统中服务的指纹信息。服务指纹信息包括服务端口、服务名和版本等</li>
+<li>通过分析目标往 Nmap 发送的数据包中某些协议标记、选项和数据，我们可以推断发送这些数据包的操作系统等</li>
+<li>nmap 通过向目标主机发送多个 UDP 与 TCP 数据包并分析其响应来进行操作系统指纹识别工作。</li>
+</ul>
+<p>Nmap 识别服务指纹：</p>
+<ul>
+<li>使用命令  <code>nmap -sV IP</code>  地址来识别目标机器的服务信息</li>
+</ul>
+<p>Nmap 侵略性的探测</p>
+<ul>
+<li>使用命令 <code>nmap -A -v -T4 IP地址</code> 来探测目标机器的操作系统、服务等信息
+<ul>
+<li><code>-A</code>  表示使用侵略性的策略探测</li>
+<li><code>-v</code>  持续输出返回解析</li>
+<li><code>-T4</code>  表示加快速度来探测，范围：1~5</li>
+</ul>
+</li>
+<li>使用 <code>nmap -sC -sV -O IP地址</code> 来探测目标机器的操作系统、服务信息、
+<ul>
+<li><code>-sC</code>  参数表示使用 Nmap 脚本探测</li>
+<li><code>-sV</code> ：表示探测目标机器上的服务信息</li>
+<li><code>-O</code> ：表示探测目标机器的操作系统信息<br>
+<a name="xAoCA"></a></li>
+</ul>
+</li>
+</ul>
+<h1 id="nmap发现局域网中存活主机"><a class="markdownIt-Anchor" href="#nmap发现局域网中存活主机">#</a> Nmap 发现局域网中存活主机</h1>
+<p>主机发现：</p>
+<ul>
+<li>一个局域网中肯定是连接着多台设备，那么我们如何获取那些设备正在开机状态呢？
+<ul>
+<li>使用 <code>ping IP地址</code> 进行探测，但是如果一个网络很大的情况下，这样的手工探测显得很费劲。</li>
+</ul>
+</li>
+<li>可以使用不同的工具来进行批量探测，在探测之前需要明白 CIDR 的含义
+<ul>
+<li>CIDR（无类别间路由，Classless Inter-Domain Routing），可以快速表示一个网络</li>
+<li>比如：172.16.1.1/24 表示在 172.16.1.1~172.16.1.255 之间的所有主机 IP 地址</li>
+</ul>
+</li>
+</ul>
+<p>Nmap 主机发现：</p>
+<ul>
+<li>使用 Nmap 命令： <code>nmap -sP CIDR</code>  对该网络中所有主机进行 ping 扫描，以探测主机存活性。扫描过程中使用了 TCP SYN 扫描、ICMP echo Request 来探测主机存活。</li>
+<li>使用 Nmap 命令： <code>nmap -sn CIDR</code>  对该网络中所有主机进行 ping 扫描，以探测主机存活性。</li>
+<li>结果输出：
+<ul>
+<li>使用 Nmap 命令： <code>nmap -sn CIDR -oX test.xml</code>  对该网络中所有主机进行 ping 扫描，以探测主机存活性。</li>
+<li>同时将结果输出到 test.xml 文件中，以便后续使用。</li>
+<li>
+<br />
+</li>
+</ul>
+</li>
+</ul>
+<p><a name="xIXSI"></a></p>
+<h1 id="nmap端口探测技巧"><a class="markdownIt-Anchor" href="#nmap端口探测技巧">#</a> Nmap 端口探测技巧</h1>
+<p>实际场景：</p>
+<ul>
+<li>在实际环境中，当系统管理员对设备进行管理时，或者渗透测速人员对设备进行检测时，并不一定对所有的服务进行操作。极有可能是对某个或某个范围内的服务进行检测。
+<ul>
+<li>如果对所有服务进行探测，那么就会出现耗时长，费力不讨好的情况。针对这样的情况，我们很有必要了解如何使用 Nmap 来更加灵活的进行服务探测，避免全端口探测对服务器造成压力。</li>
+</ul>
+</li>
+</ul>
+<!-- flag of hidden posts -->
+      <div class="tags">
+          <a href="/tags/note/" rel="tag"><i class="ic i-tag"></i> note</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-14 19:54:59" itemprop="dateModified" datetime="2023-07-14T19:54:59+08:00">2023-07-14</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Clown <i class="ic i-at"><em>@</em></i>花开两朵，天各一方！
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://fairyxxx.github.io/note/Nmap%E5%9F%BA%E7%A1%80/" title="Nmap 基础">https://fairyxxx.github.io/note/Nmap基础/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text"> Nmap 的介绍与安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap%E5%88%97%E4%B8%BE%E8%BF%9C%E7%A8%8B%E6%9C%BA%E5%99%A8%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text"> Nmap 列举远程机器开放的端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap%E8%AF%86%E5%88%AB%E7%9B%AE%E6%A0%87%E6%9C%BA%E5%99%A8%E4%B8%8A%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%8C%87%E7%BA%B9"><span class="toc-number">3.</span> <span class="toc-text"> Nmap 识别目标机器上服务的指纹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap%E5%8F%91%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text"> Nmap 发现局域网中存活主机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B%E6%8A%80%E5%B7%A7"><span class="toc-number">5.</span> <span class="toc-text"> Nmap 端口探测技巧</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Clown"
+      data-src="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Clown</p>
+  <div class="description" itemprop="description">我很喜欢枫叶，可惜，枫叶红时，总多离别。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">39</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTdENHkxczdRMi8/c3BtX2lkX2Zyb209MzMzLjk5OS4wLjAmdmRfc291cmNlPWU3OWM4OWUxYjU5NzQwNWZlM2Y0YTc1MWZjN2NkZGNl" title="https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV17D4y1s7Q2&#x2F;?spm_id_from&#x3D;333.999.0.0&amp;vd_source&#x3D;e79c89e1b597405fe3f4a751fc7cddce"><i class="ic i-bilibili"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zOTEwNzMyMjY=" title="https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;391073226"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvc29uZz9pZD01MTMzNjA3MjE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;song?id&#x3D;513360721"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdHYvc2hvdy8xMDM0OjQ4MzUzNjg2MjE3Njg3OTk/ZnJvbT1vbGRfcGNfdmlkZW9zaG93" title="https:&#x2F;&#x2F;weibo.com&#x2F;tv&#x2F;show&#x2F;1034:4835368621768799?from&#x3D;old_pc_videoshow"><i class="ic i-weibo"></i></span>
+      <span class="exturl item youtube" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1OLTVLSGw5Zlh0TSZhYl9jaGFubmVsPeaftOefpemBk0NoYWlLbm93c09mZmljaWFsQ2hhbm5lbA==" title="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;N-5KHl9fXtM&amp;ab_channel&#x3D;柴知道ChaiKnowsOfficialChannel"><i class="ic i-youtube"></i></span>
+      <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Clown @ Fairy Tale</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">NaNm 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">NaN:aN</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'note/Nmap基础/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      },
+      true
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
