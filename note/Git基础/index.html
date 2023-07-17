@@ -1,0 +1,554 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<!--解决语雀图片无法显示-->
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="花开两朵，天各一方！" href="https://fairyxxx.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="花开两朵，天各一方！" href="https://fairyxxx.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="花开两朵，天各一方！" href="https://fairyxxx.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="note" />
+
+
+<link rel="canonical" href="https://fairyxxx.github.io/note/Git%E5%9F%BA%E7%A1%80/">
+
+
+
+  <title>
+Git 基础 |
+Fairy Tale = 花开两朵，天各一方！ = LYT</title><meta name="robots" content="noindex">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Git 基础
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-10 10:29:05">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-10T10:29:05+08:00">2023-07-10</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Fairy Tale</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Fairyxxx/lllyyy/main/test/000819-16469284997296.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Fairyxxx/lllyyy/main/test/bbdac94ec0cf09931cae03a204e98cee3c9b4e5f.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Fairyxxx/lllyyy/main/test/2109241622523593-0-lp.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Fairyxxx/lllyyy/main/test/jdklf1r253t.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Fairyxxx/lllyyy/main/test/403bb568deed2a09d90a274e0b14cc4538cbeb60.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Fairyxxx/lllyyy/main/test/224610-16358643702010.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://fairyxxx.github.io/note/Git%E5%9F%BA%E7%A1%80/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/avatar.jpg">
+    <meta itemprop="name" content="Clown">
+    <meta itemprop="description" content="LYT, 我很喜欢枫叶，可惜，枫叶红时，总多离别。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="花开两朵，天各一方！">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><a name="CjBTs"></a></p>
+<h1 id="git的安装和初始化配置"><a class="markdownIt-Anchor" href="#git的安装和初始化配置">#</a> git 的安装和初始化配置</h1>
+<p>git 官网<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8="> https://git-scm.com/</span><br />安装完成后打开终端，输入： <code>git -v</code>  查看版本。<br>
+<a name="oyPlk"></a></p>
+<h2 id="git的使用方式"><a class="markdownIt-Anchor" href="#git的使用方式">#</a> Git 的使用方式：</h2>
+<ul>
+<li>命令行</li>
+<li>图形化界面（GUI）</li>
+<li>IDE 插件 / 拓展<br>
+<a name="XcQQM"></a></li>
+</ul>
+<h3 id="使用git之前配置用户名和邮箱"><a class="markdownIt-Anchor" href="#使用git之前配置用户名和邮箱">#</a> 使用 git 之前配置用户名和邮箱：</h3>
+<p>配置用户名 <code>git config --global user.name &quot;Jaser yng&quot;</code> <br />配置邮箱 <code>git config --global user.email xxxxx@gmail.com</code> <br /> <code>--local</code> ：本地配置，只对本地仓库有效<br /> <code>--global</code> ：全局配置，所有仓库生效<br /> <code>--system</code> ：系统配置，对所有用户生效<br />用户名中有空格需使用双引号 <code>&quot;Jasper yang&quot;</code> ，没有空格不需要双引号<br />保存用户名和密码：<br /> <code>git config --global credential.helper store</code> <br />查看配置信息：<br /> <code>git config --global --list</code></p>
+<p><a name="cotkD"></a></p>
+<h1 id="新建仓库"><a class="markdownIt-Anchor" href="#新建仓库">#</a> 新建仓库</h1>
+<p>创建仓库：</p>
+<ul>
+<li>方式一： <code>git init 文件名</code> 在本地建立一个 git 仓库</li>
+<li>方式二： <code>git clone 仓库地址</code> 克隆远程仓库<br>
+<a name="N2itX"></a></li>
+</ul>
+<h1 id="工作区域和文件状态"><a class="markdownIt-Anchor" href="#工作区域和文件状态">#</a> 工作区域和文件状态</h1>
+<p>本地数据管理区域：</p>
+<ul>
+<li>工作区（Working Directory）实际操作的目录</li>
+<li>暂存区（Staging Area/Index）临时保存区域，用于保存即将要提交到 git 仓库的修改内容</li>
+<li>本地仓库（Local Repository）git 存储代码和版本信息的主要位置</li>
+</ul>
+<p><img data-src="https://cdn-us.imgs.moe/2023/07/10/64ab6c8f5b581.png" alt="image.png"><br>
+<a name="wdLTP"></a></p>
+<h1 id="添加和提交文件"><a class="markdownIt-Anchor" href="#添加和提交文件">#</a> 添加和提交文件</h1>
+<p><code>git init</code>  创建仓库<br /> <code>git status</code>  查看仓库的状态<br /> <code>git add</code>  添加到暂存区 <br /> <code>git add *.txt</code>  使用通配符，把 <code>.txt</code>  文件全部添加到暂存区<br /> <code>git add .</code>  使用目录，把当前文件夹下的所有文件添加到暂存区<br /> <code>git commit</code>  提交到仓库，只能提交暂存区中的内容，不会提交工作区的内容<br /> <code>git commit -m</code>  不会进入交互界面，直接提交<br /> <code>git log</code>  查看提交历史记录<br /> <code>git log --oneline</code>  查看简洁的提交记录<br>
+<a name="rqAwZ"></a></p>
+<h1 id="回退版本"><a class="markdownIt-Anchor" href="#回退版本">#</a> 回退版本</h1>
+<p><code>git reset</code>  用于回退版本<br /> <code>git reset --soft</code>  表示回退到某一版本，并且保留工作区和暂存区的所有修改内容<br /> <code>git reset --hard</code>  表示回退到某一版本，并且丢弃工作区和暂存区的所有修改内容<br /> <code>git reset --mixed</code>  表示回退到某一版本，只保留工作区的修改内容，而丢弃暂存区的修改内容<br /><img data-src="https://cdn-us.imgs.moe/2023/07/10/64ab6ca31b310.png" alt="image.png"><br>
+<a name="bOyBi"></a></p>
+<h1 id="git-diff"><a class="markdownIt-Anchor" href="#git-diff">#</a>  <code>git diff</code></h1>
+<p>查看工作区、暂存区、本地仓库之间的差异<br />  <code>git diff</code>  默认比较工作区和暂存区的差异内容，会显示发生更改的文件以及更改的详细信息。<br /> <code>git diff HEAD</code>  比较工作区与本地仓库之间的差异。<br /> <code>git diff --cached</code>  比较暂存区与本地仓库之间的差异。<br /> <code>git diff --staged</code>  比较暂存区与本地仓库之间的差异。<br /> <code>git diff 版本提交ID1 版本提交ID2</code>  后面加上两次版本的提交 ID 就可以比较两个版本之间的差异内容。<br /> <code>git diff HEAD~ HEAD</code>  比较当前版本和上一个版本之间的差异<br /> <code>git diff HEAD^ HEAD</code>  比较当前版本和上一个版本之间的差异<br /> <code>git diff HEAD~2 HEAD</code>  比较当前版本和提交前的两个版本之间的差异<br /> <code>git diff HEAD~2 HEAD file3.txt</code>  只会查看 file3 的差异内容<br /> <code>git diff &lt;branch_name&gt; &lt;branch_name&gt;</code>  比较分支之间的差异<br>
+<a name="GxVQB"></a></p>
+<h1 id="如何从版本库中删除文件"><a class="markdownIt-Anchor" href="#如何从版本库中删除文件">#</a> 如何从版本库中删除文件</h1>
+<p><code>rm file;git add file</code>  先从工作区删除文件，然后再从暂存区删除内容<br /> <code>git rm &lt;file&gt;</code>  本文件从工作区和暂存区同时删除<br /> <code>git rm --cached &lt;file&gt;</code>  把文件从暂存区删除，但是保留在当前工作区中<br /> <code>git rm -r*</code>  递归删除某个目录下的所有子目录和文件，删除后不要忘记提交。<br>
+<a name="JPKgr"></a></p>
+<h1 id="gitignore忽略文件"><a class="markdownIt-Anchor" href="#gitignore忽略文件">#</a>  <code>.gitignore</code>  忽略文件</h1>
+<p><a name="Sl9Mg"></a></p>
+<h2 id="应该忽略那些文件"><a class="markdownIt-Anchor" href="#应该忽略那些文件">#</a> 应该忽略那些文件</h2>
+<ol>
+<li>系统或者软件自动生成的文件</li>
+<li>编译产生的中间文件和结果文件</li>
+<li>运行时生成日志文件、缓存文件、临时文件</li>
+<li>涉及身份、密码、口令、密钥等敏感信息文件</li>
+</ol>
+<ul>
+<li>忽略日志文件和文件夹</li>
+<li>忽略所有 <code>.class</code>  文件</li>
+<li>忽略所有 <code>.o</code>  文件</li>
+<li>忽略所有 <code>.env</code>  文件</li>
+<li>忽略所有 <code>.zip</code>  和 <code>tar</code>  文件</li>
+<li>忽略所有 <code>.pem</code>  文件</li>
+<li>……<br>
+<a name="Jpuij"></a></li>
+</ul>
+<h2 id="gitignore文件的匹配规则"><a class="markdownIt-Anchor" href="#gitignore文件的匹配规则">#</a>  <code>.gitignore</code>  文件的匹配规则</h2>
+<p>从上到下逐行匹配，每一行表示一个忽略模式</p>
+<ul>
+<li>空行或者以 <code>#</code> 开头的行会被 Git 忽略。一般空行用于可读性的分隔， <code>#</code> 一般用作注释</li>
+<li>使用标准的 Blob 模式匹配，例如
+<ul>
+<li>星号 <code>*</code>  通配任意个字符</li>
+<li>问号 <code>?</code>  匹配单个字符</li>
+<li>中括号 <code>[]</code>  表示匹配列表中的单个字符，比如： <code>[abc]</code>  表示 <code>a/b/c</code></li>
+</ul>
+</li>
+<li>两个星号 <code>**</code>  表示匹配任意的中间目录</li>
+<li>中括号可以使用短中线链接，比如：
+<ul>
+<li><code>[0-9]</code>  表示任意一位数字， <code>[a-z]</code>  表示任意一位小写字母</li>
+</ul>
+</li>
+<li>感叹号 <code>!</code>  表示取反</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 忽略所有的 .a 文件</span><br><span class="line">*.a</span><br><span class="line"></span><br><span class="line"># 但跟踪所有的 lib.a,即使你在前面忽略了 .a 文件</span><br><span class="line">!lib.a</span><br><span class="line"></span><br><span class="line"># 只忽略当前目录下的 TODO文件，而不忽略 subdir/TODO</span><br><span class="line">/TODO</span><br><span class="line"></span><br><span class="line"># 忽略任何目录下名为 build 的文件夹</span><br><span class="line">build/</span><br><span class="line"></span><br><span class="line"># 忽略 doc/notes.txt,但不忽略 doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"></span><br><span class="line"># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+<p><a name="PHIG9"></a></p>
+<h1 id="注册github账号"><a class="markdownIt-Anchor" href="#注册github账号">#</a> 注册 Github 账号</h1>
+<p>网址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==">https://github.com/</span><br>
+<a name="fyomH"></a></p>
+<h1 id="ssh配置和克隆仓库"><a class="markdownIt-Anchor" href="#ssh配置和克隆仓库">#</a> SSH 配置和克隆仓库</h1>
+<p>生成 SSH Key： <code>ssh-keygen -t rsa -b 4096</code></p>
+<ul>
+<li>私钥文件： <code>id_rsa</code></li>
+<li>公钥文件： <code>id_rsa.pub</code></li>
+</ul>
+<p>克隆仓库： <code>git clone repo-address</code> <br />推送更新内容： <code>git push &lt;remote&gt; &lt;branch&gt;</code> <br />拉取更新内容： <code>git pull &lt;remote&gt;</code> <br>
+<a name="TIkP5"></a></p>
+<h1 id="关联本地仓库和远程仓库"><a class="markdownIt-Anchor" href="#关联本地仓库和远程仓库">#</a> 关联本地仓库和远程仓库</h1>
+<p>添加远程仓库：</p>
+<ol>
+<li><code>git remote add &lt;远程仓库别名&gt; &lt;远程仓库地址&gt;</code></li>
+<li><code>git push -u &lt;远程仓库名&gt; &lt;分支名&gt;</code></li>
+</ol>
+<p>查看远程仓库： <code>git remote -v</code> <br />拉取远程仓库内容： <code>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>  相同可省略冒号后面部分<br>
+<a name="ZbNtQ"></a></p>
+<h1 id="gitee的使用和gitlab本地化部署"><a class="markdownIt-Anchor" href="#gitee的使用和gitlab本地化部署">#</a> Gitee 的使用和 GitLab 本地化部署</h1>
+<p>Gitee：<span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20v">https://gitee.com/</span></p>
+<ul>
+<li>特色：国内平台</li>
+</ul>
+<p>GitLab：<span class="exturl" data-url="aHR0cHM6Ly9hYm91dC5naXRsYWIuY29tLw==">https://about.gitlab.com/</span></p>
+<ul>
+<li>特色：私有化部署<br>
+<a name="bWkzf"></a></li>
+</ul>
+<h1 id="gui工具"><a class="markdownIt-Anchor" href="#gui工具">#</a> GUI 工具</h1>
+<p>Github Desktop：功能单一只能管理 GitHub 上的仓库。<br />Sourcetree：支持 Windows 和 mac 操作系统<br>
+<a name="iytA8"></a></p>
+<h1 id="vscode中使用git"><a class="markdownIt-Anchor" href="#vscode中使用git">#</a> VScode 中使用 Git</h1>
+<p>布局：菜单栏、侧边栏、编辑区、终端区<br />打开命令面板： <code>Ctrl + Shift + ``/</code> Command + Shift +  <code>&lt;br /&gt;配置文件：`settings.json`&lt;br /&gt;打开终端：`Ctrl + Shift + </code> <br />插件和扩展：在侧边栏中的扩展界面中搜索和安装<br />Git 操作：在侧边栏中的源码管理器 UI 界面中操作<br>
+<a name="wsui8"></a></p>
+<h1 id="分支简介和基本操作"><a class="markdownIt-Anchor" href="#分支简介和基本操作">#</a> 分支简介和基本操作</h1>
+<p>查看分支列表： <code>git branch</code> <br />创建分支： <code>git branch branch-name</code> <br />切换分支：</p>
+<ul>
+<li><code>git checkout branch-name</code></li>
+<li><code>git switch branch-name</code>  (推荐)</li>
+</ul>
+<p>合并分支： <code>git merge branch-name</code> <br />删除分支：</p>
+<ul>
+<li><code>git branch -d branch-name</code>  删除已合并分支</li>
+<li><code>git branch -D branch-name</code>  删除未合并分支<br>
+<a name="E9Jys"></a></li>
+</ul>
+<h1 id="解决合并冲突"><a class="markdownIt-Anchor" href="#解决合并冲突">#</a> 解决合并冲突</h1>
+<p>两个分支未修改同一个文件的同一处位置：Git 自动合并<br />两个分支修改了同一个文件的同一处位置：产生冲突</p>
+<ul>
+<li>解决方法：
+<ul>
+<li>1. 手工修改冲突文件</li>
+<li>2. 添加暂存区 <code>git add file</code></li>
+<li>3. 提交修改 <code>git commit -m &quot;message&quot;</code></li>
+</ul>
+</li>
+<li>中止合并：当不想继续执行合并操作时可以使用下面的命令来中止合并过程： <code>git merge --abort</code> <br>
+<a name="IqiOt"></a></li>
+</ul>
+<h1 id="回退和rebase"><a class="markdownIt-Anchor" href="#回退和rebase">#</a> 回退和 <code>rebase</code></h1>
+<p><code>Merge</code> ：</p>
+<ul>
+<li>优点：不会破坏原分支的提交历史，方便回溯和查看</li>
+<li>缺点：会产生额外的提交节点，分支图比较复杂</li>
+</ul>
+<p><code>Rebase</code> ：</p>
+<ul>
+<li>优点：不会新增额外的提交记录，形成线性历史，比较直观和干净</li>
+<li>缺点：会改变提交历史，改变了当前分支 <code>branch out</code>  的节点。</li>
+<li>避免在共享分支时使用，一般不会在公共分支上使用<br>
+<a name="XUjYi"></a></li>
+</ul>
+<h1 id="分支管理和工作流模型"><a class="markdownIt-Anchor" href="#分支管理和工作流模型">#</a> 分支管理和工作流模型</h1>
+<p><code>main</code>  主线 / 基线分支</p>
+<ul>
+<li>只接受来自 <code>hotfix</code>  和 <code>release</code>  的合并请求</li>
+<li>不允许直接 <code>push</code>  修改</li>
+</ul>
+<p><code>hotfix</code>  线上版本 bug 热修复分支</p>
+<ul>
+<li>用于解决线上问题，修复完后合并回 <code>main</code>  分支</li>
+<li>命名规则： <code>hotfix-#issueid-desc</code></li>
+</ul>
+<p><code>release</code>  版本发布分支</p>
+<ul>
+<li>永久分支，用于发布前的测试和验证<br>
+<a name="vg0lS"></a></li>
+</ul>
+<h2 id="分支命名"><a class="markdownIt-Anchor" href="#分支命名">#</a> 分支命名：</h2>
+<p>推荐使用带有意义的描述性名称来命名分支</p>
+<ul>
+<li>版本发布分支 / Tag 示例： <code>v1.0.0</code></li>
+<li>功能分支示例： <code>feature-login-page</code></li>
+<li>修复分支示例： <code>hotfix-#issueid-desc</code> <br>
+<a name="Bjx9K"></a></li>
+</ul>
+<h2 id="分支管理"><a class="markdownIt-Anchor" href="#分支管理">#</a> 分支管理：</h2>
+<p>定期合并已经成功验证的分支，及时删除已经合并的分支<br />保持合适的分支数量<br />为分支设置合适的管理权限</p>
+<!-- flag of hidden posts -->
+      <div class="tags">
+          <a href="/tags/note/" rel="tag"><i class="ic i-tag"></i> note</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-14 19:54:54" itemprop="dateModified" datetime="2023-07-14T19:54:54+08:00">2023-07-14</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Clown <i class="ic i-at"><em>@</em></i>花开两朵，天各一方！
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://fairyxxx.github.io/note/Git%E5%9F%BA%E7%A1%80/" title="Git 基础">https://fairyxxx.github.io/note/Git基础/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text"> git 的安装和初始化配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text"> Git 的使用方式：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8git%E4%B9%8B%E5%89%8D%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 使用 git 之前配置用户名和邮箱：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text"> 新建仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">3.</span> <span class="toc-text"> 工作区域和文件状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%92%8C%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> 添加和提交文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC"><span class="toc-number">5.</span> <span class="toc-text"> 回退版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-diff"><span class="toc-number">6.</span> <span class="toc-text">  git diff</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BB%8E%E7%89%88%E6%9C%AC%E5%BA%93%E4%B8%AD%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text"> 如何从版本库中删除文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitignore%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">  .gitignore  忽略文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E8%AF%A5%E5%BF%BD%E7%95%A5%E9%82%A3%E4%BA%9B%E6%96%87%E4%BB%B6"><span class="toc-number">8.1.</span> <span class="toc-text"> 应该忽略那些文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore%E6%96%87%E4%BB%B6%E7%9A%84%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="toc-number">8.2.</span> <span class="toc-text">  .gitignore  文件的匹配规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Cgithub%E8%B4%A6%E5%8F%B7"><span class="toc-number">9.</span> <span class="toc-text"> 注册 Github 账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh%E9%85%8D%E7%BD%AE%E5%92%8C%E5%85%8B%E9%9A%86%E4%BB%93%E5%BA%93"><span class="toc-number">10.</span> <span class="toc-text"> SSH 配置和克隆仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%92%8C%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">11.</span> <span class="toc-text"> 关联本地仓库和远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitee%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8Cgitlab%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">12.</span> <span class="toc-text"> Gitee 的使用和 GitLab 本地化部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gui%E5%B7%A5%E5%85%B7"><span class="toc-number">13.</span> <span class="toc-text"> GUI 工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vscode%E4%B8%AD%E4%BD%BF%E7%94%A8git"><span class="toc-number">14.</span> <span class="toc-text"> VScode 中使用 Git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">15.</span> <span class="toc-text"> 分支简介和基本操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="toc-number">16.</span> <span class="toc-text"> 解决合并冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E9%80%80%E5%92%8Crebase"><span class="toc-number">17.</span> <span class="toc-text"> 回退和 rebase</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E5%92%8C%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%A8%A1%E5%9E%8B"><span class="toc-number">18.</span> <span class="toc-text"> 分支管理和工作流模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D"><span class="toc-number">18.1.</span> <span class="toc-text"> 分支命名：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-number">18.2.</span> <span class="toc-text"> 分支管理：</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Clown"
+      data-src="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/images/avatar.jpg">
+  <p class="name" itemprop="name">Clown</p>
+  <div class="description" itemprop="description">我很喜欢枫叶，可惜，枫叶红时，总多离别。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">42</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTdENHkxczdRMi8/c3BtX2lkX2Zyb209MzMzLjk5OS4wLjAmdmRfc291cmNlPWU3OWM4OWUxYjU5NzQwNWZlM2Y0YTc1MWZjN2NkZGNl" title="https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV17D4y1s7Q2&#x2F;?spm_id_from&#x3D;333.999.0.0&amp;vd_source&#x3D;e79c89e1b597405fe3f4a751fc7cddce"><i class="ic i-bilibili"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zOTEwNzMyMjY=" title="https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;391073226"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvc29uZz9pZD01MTMzNjA3MjE=" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;song?id&#x3D;513360721"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdHYvc2hvdy8xMDM0OjQ4MzUzNjg2MjE3Njg3OTk/ZnJvbT1vbGRfcGNfdmlkZW9zaG93" title="https:&#x2F;&#x2F;weibo.com&#x2F;tv&#x2F;show&#x2F;1034:4835368621768799?from&#x3D;old_pc_videoshow"><i class="ic i-weibo"></i></span>
+      <span class="exturl item youtube" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1OLTVLSGw5Zlh0TSZhYl9jaGFubmVsPeaftOefpemBk0NoYWlLbm93c09mZmljaWFsQ2hhbm5lbA==" title="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;N-5KHl9fXtM&amp;ab_channel&#x3D;柴知道ChaiKnowsOfficialChannel"><i class="ic i-youtube"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Clown @ Fairy Tale</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">NaNm 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">NaN:aN</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'note/Git基础/',
+    favicon: {
+      show: "(*>﹏<*)′",
+      hide: "ㄟ( ▔, ▔ )ㄏ ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      },
+      true
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/Fairyxxx/Fairyxxx.github.io@latest/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
